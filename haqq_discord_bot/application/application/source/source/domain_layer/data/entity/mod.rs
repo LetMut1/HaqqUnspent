@@ -1,0 +1,11 @@
+pub mod address_verification_data;
+pub mod aislm_stake;
+pub mod discord_user_role;
+pub mod recipient_hd_wallet;
+pub mod raffle;
+pub mod raffle_participant;
+pub mod raffle_winner;
+pub mod verified_address_blacklist;
+pub mod verified_bech32_address;
+pub mod sender_hd_wallet;
+pub mod prize_transfer_proof;

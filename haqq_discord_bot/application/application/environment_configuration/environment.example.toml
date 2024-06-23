@@ -1,0 +1,148 @@
+[remote_service]
+
+[remote_service.discord]
+
+# "Guild" is a "server".
+[remote_service.discord.guild]
+
+[remote_service.discord.guild.id]
+value = 123456
+
+[remote_service.discord.application]
+
+[remote_service.discord.application.bot]
+
+[remote_service.discord.application.bot.id]
+value = 12345678
+
+[remote_service.discord.application.bot.role_id]
+value = 12345678
+
+[remote_service.discord.application.bot.public_key]
+value = "invalid"
+
+[remote_service.discord.application.bot.token]
+value = "invlalid"
+
+[remote_service.haqq]
+
+[remote_service.haqq.evm_node]
+
+[remote_service.haqq.evm_node.url]
+value = "https://rpc.eth.haqq.network"
+
+[noncontext_parameters]
+
+[noncontext_parameters.raffle_stake_updating_cron_configuration]
+value = "0 0 */3 * * * *"
+
+[noncontext_parameters.discord_roles_updating_cron_configuration]
+value = "0 */15 * * * * *"
+
+[noncontext_parameters.aislm_stake_streshold_quantity_for_stakers_club_role]
+value = "1000000000000000000000"
+
+[noncontext_parameters.algorithm_repetition_in_error_case_quantity]
+value = 15
+
+[noncontext_parameters.wallet_verification_process_duraction_minutes]
+value = 5
+
+[tokio_runtime]
+
+# It is better that the number be greater or equal to 512. It all depends on the workload
+# of blocking tasks - these are tasks that take more than 1ms of CPU time.
+[tokio_runtime.maximum_blocking_threads_quantity]
+value = 16
+
+# It is better that the number be equal to the number of threads that the hardware
+# can handle simultaneously.
+[tokio_runtime.worker_threads_quantity]
+value = 4
+
+# It is better that the number be greater or equal to 2MiB
+[tokio_runtime.worker_thread_stack_size]
+value = 2097152
+
+[application_server]
+
+[application_server.tcp]
+
+[application_server.tcp.socket_address]
+value = "0.0.0.0:80"
+
+[application_server.tcp.nodelay]
+value = false
+
+[application_server.tcp.sleep_on_accept_errors]
+value = false
+
+[application_server.tcp.keepalive]
+
+[application_server.tcp.keepalive.duration]
+value = 3
+is_exist = false
+
+[application_server.tcp.keepalive.interval_duration]
+value = 1
+is_exist = false
+
+[application_server.tcp.keepalive.retries_quantity]
+value = 3
+is_exist = false
+
+[application_server.http]
+
+[application_server.http.adaptive_window]
+value = false
+
+[application_server.http.connection_window_size]
+value = 1048576    #1MB
+
+[application_server.http.stream_window_size]
+value = 1048576    #1MB
+
+[application_server.http.maximum_frame_size]
+value = 16384  #16KB
+
+[application_server.http.maximum_sending_buffer_size]
+value = 409600    #400KB
+
+[application_server.http.enable_connect_protocol]
+value = false
+
+[application_server.http.maximum_header_list_size]
+value = 1048576    #1MB
+
+[application_server.http.maximum_pending_accept_reset_streams]
+value = 20
+is_exist = false
+
+[application_server.http.keepalive]
+is_exist = false
+
+[application_server.http.keepalive.interval_duration]
+value = 5
+
+[application_server.http.keepalive.timeout_duration]
+value = 20
+
+[logging]
+
+[logging.directory_path]
+value = "/_log"
+
+[logging.file_name_prefix]
+value = "log"
+
+[security]
+
+[security.server_access_token]
+value = "qwerty"
+
+[resource]
+
+[resource.postgresql]
+
+[resource.postgresql.configuration]
+value = "host=postgresql port=5432 user=root password=password dbname=haqq"

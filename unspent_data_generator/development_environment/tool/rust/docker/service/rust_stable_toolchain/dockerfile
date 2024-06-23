@@ -1,0 +1,8 @@
+FROM rust:1.70.0
+
+RUN \
+mkdir -p /unspentio && \
+rustup default stable && \
+rustup component add \
+    clippy \
+    rustfmt

@@ -1,0 +1,40 @@
+[package]
+name = "extern_crate"
+version = "0.1.0"
+authors.workspace = true
+edition = "2021"
+
+[lib]
+name = "extern_crate"
+path = "./mod.rs"
+test = true
+doctest = true
+bench = true
+doc = true
+proc-macro = false
+harness = true
+edition = "2021"
+crate-type = ["lib"]
+required-features = []
+
+[dependencies]
+axum = { package = "axum", version = "0.6.19", default-features = true, features = [], optional = false }
+axum-server = { package = "axum-server", version = "0.5.1", default-features = true, features = ["tls-rustls"], optional = false }
+build_script_constant = { path = "./build_script_constant", package = "build_script_constant", version = "0.1.0", default-features = true, features = [], optional = false }
+bytes = { package = "bytes", version = "1.4.0", default-features = true, features = [], optional = false }
+chrono = { package = "chrono", version = "0.4.26", default-features = true, features = [], optional = false }
+clickhouse = { package = "clickhouse", version = "0.11.5", default-features = true, features = [], optional = false }
+environment_configuration = { path = "./environment_configuration", package = "environment_configuration", version = "0.1.0", default-features = true, features = [], optional = false }
+http = { package = "http", version = "0.2.9", default-features = true, features = [], optional = false }
+hyper = { package = "hyper", version = "0.14.27", default-features = true, features = ["full"], optional = false }
+hyper-tls = { package = "hyper-tls", version = "0.5.0", default-features = true, features = [], optional = false }
+matchit = { package = "matchit", version = "0.7.0", default-features = true, features = [], optional = false }
+rand = { package = "rand", version = "0.8.5", default-features = true, features = [], optional = false }
+serde = { package = "serde", version = "1.0.183", default-features = true, features = ["derive"], optional = false }
+serde_json = { package = "serde_json", version = "1.0.105", default-features = true, features = [], optional = false }
+tokio = { package = "tokio", version = "1.32.0", default-features = true, features = ["full"], optional = false }
+toml = { package = "toml", version = "0.7.4", default-features = true, features = [], optional = false }
+uuid = { package = "uuid", version = "1.4.1", default-features = true, features = ["v4"], optional = false }
+
+[features]
+default = []

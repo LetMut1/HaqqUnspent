@@ -1,0 +1,23 @@
+[package]
+name = "migrate_asset_snapshot"
+version = "0.1.0"
+authors.workspace = true
+edition = "2021"
+
+[[bin]]
+name = "migrate_asset_snapshot"
+path = "./mod.rs"
+test = true
+doctest = true
+bench = true
+doc = true
+proc-macro = false
+harness = true
+edition = "2021"
+required-features = []
+
+[dependencies]
+application = { path = "./../../../../..", package = "application", version = "0.1.0", default-features = true, features = [], optional = false }
+tokio = { package = "tokio", version = "1.32.0", default-features = true, features = ["full"], optional = false }
+tokio_postgres = { package = "tokio-postgres", version = "^0.7", default-features = true, features = [], optional = false }
+clickhouse = { package = "clickhouse", version = "0.11.5", default-features = true, features = [], optional = false }

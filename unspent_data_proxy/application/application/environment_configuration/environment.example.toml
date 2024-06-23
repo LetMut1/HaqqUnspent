@@ -1,0 +1,126 @@
+[tokio_runtime]
+
+# It is better that the number be greater or equal to 512. It all depends on the workload
+# of blocking tasks - these are tasks that take more than 1ms of CPU time.
+[tokio_runtime.maximum_blocking_threads_quantity]
+value = 16
+
+# It is better that the number be equal to the number of threads that the hardware
+# can handle simultaneously.
+[tokio_runtime.worker_threads_quantity]
+value = 4
+
+# It is better that the number be greater or equal to 2MiB
+[tokio_runtime.worker_thread_stack_size]
+value = 2097152
+
+[application_server]
+
+[application_server.tcp]
+
+[application_server.tcp.socket_address]
+value = "0.0.0.0:80"
+
+[application_server.tcp.nodelay]
+value = false
+
+[application_server.tcp.sleep_on_accept_errors]
+value = false
+
+[application_server.tcp.keepalive]
+
+[application_server.tcp.keepalive.duration]
+value = 3
+is_exist = false
+
+[application_server.tcp.keepalive.interval_duration]
+value = 1
+is_exist = false
+
+[application_server.tcp.keepalive.retries_quantity]
+value = 3
+is_exist = false
+
+[application_server.http]
+
+[application_server.http.adaptive_window]
+value = false
+
+[application_server.http.connection_window_size]
+value = 1048576    #1MB
+
+[application_server.http.stream_window_size]
+value = 1048576    #1MB
+
+[application_server.http.maximum_frame_size]
+value = 16384  #16KB
+
+[application_server.http.maximum_sending_buffer_size]
+value = 409600    #400KB
+
+[application_server.http.enable_connect_protocol]
+value = false
+
+[application_server.http.maximum_header_list_size]
+value = 1048576    #1MB
+
+[application_server.http.maximum_pending_accept_reset_streams]
+value = 20
+is_exist = false
+
+[application_server.http.keepalive]
+is_exist = false
+
+[application_server.http.keepalive.interval_duration]
+value = 5
+
+[application_server.http.keepalive.timeout_duration]
+value = 20
+
+[remote_service]
+
+[remote_service.user_authorization]
+
+[remote_service.user_authorization.url]
+value = "https://preview-api.notspent.dev:443/user"
+
+[logging]
+
+[logging.directory_path]
+value = "/_log"
+
+[logging.file_name_prefix]
+value = "log"
+
+[security]
+
+[security.server_access_token]
+value = "jsdcUISDcj0SUDJCojsSEcijcOSDI"
+
+[resource]
+
+[resource.clickhouse]
+
+[resource.clickhouse.url]
+value = "http://clickhouse:8123"
+
+[resource.clickhouse.user]
+value = "root"
+
+[resource.clickhouse.password]
+value = "password"
+
+[resource.clickhouse.database]
+value = "unspentio"
+
+[resource.postgresql]
+
+[resource.postgresql.selecting]
+
+[resource.postgresql.selecting.configuration]
+value = "host= port= user= password= dbname="
+
+[resource.postgresql.updating]
+
+[resource.postgresql.updating.configuration]
+value = "host= port= user= password= dbname="

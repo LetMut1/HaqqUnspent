@@ -1,0 +1,10 @@
+FROM ubuntu:22.04
+
+RUN \
+mkdir -p /unspentio && \
+apt-get update && \
+apt-get upgrade -y && \
+apt-get install -y \
+    curl && \
+curl -fsSL -o /usr/local/bin/dbmate https://github.com/amacneil/dbmate/releases/download/v2.5.0/dbmate-linux-amd64 && \
+chmod +x /usr/local/bin/dbmate

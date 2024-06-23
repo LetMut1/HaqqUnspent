@@ -1,0 +1,51 @@
+version: '3.8'
+
+services:
+    clickhouse:
+        container_name: unspentio_data_proxy_clickhouse
+        build:
+            context: ./service/clickhouse
+            dockerfile: dockerfile
+        environment:
+            CLICKHOUSE_DEFAULT_ACCESS_MANAGEMENT: '1'
+            CLICKHOUSE_USER: 'root'
+            CLICKHOUSE_PASSWORD: 'password'
+            CLICKHOUSE_DB: 'unspentio'
+        volumes:
+            - clickhouse_data:/var/lib/clickhouse/
+        restart: always
+    dbmate:
+        container_name: unspentio_data_proxy_dbmate
+        build:
+            context: ./service/dbmate
+            dockerfile: dockerfile
+        volumes:
+            - ./../../../:/unspentio
+        restart: always
+        tty: true
+        init: true
+    postgresql:
+        container_name: unspentio_data_proxy_postgresql
+        build:
+            context: ./service/postgresql
+            dockerfile: dockerfile
+        environment:
+            PGDATA: '/var/lib/postgresql/data'
+            POSTGRES_HOST_AUTH_METHOD: 'md5'
+            POSTGRES_USER: 'root'
+            POSTGRES_PASSWORD: 'password'
+            POSTGRES_DB: 'unspentio'
+        volumes:
+            - postgresql_data:/var/lib/postgresql/data
+        restart: always
+
+volumes:
+    clickhouse_data:
+        driver: local
+    postgresql_data:
+        driver: local
+
+networks:
+    default:
+        external: true
+        name: resource

@@ -1,0 +1,25 @@
+[package]
+name = "environment_configuration"
+version = "0.1.0"
+authors.workspace = true
+edition = "2021"
+
+[lib]
+name = "environment_configuration"
+path = "./mod.rs"
+test = true
+doctest = true
+bench = true
+doc = true
+proc-macro = false
+harness = true
+edition = "2021"
+crate-type = ["lib"]
+required-features = []
+
+[dependencies]
+serde = { package = "serde", version = "^1.0", default-features = true, features = ["derive"], optional = false }
+toml = { package = "toml", version = "0.7.4", default-features = true, features = [], optional = false }
+
+[features]
+default = []

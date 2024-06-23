@@ -1,0 +1,58 @@
+[package]
+name = "application"
+version = "0.1.0"
+authors.workspace = true
+edition = "2021"
+build = "./build.rs"
+
+[lib]
+name = "application"
+path = "./source/mod.rs"
+test = true
+doctest = true
+bench = true
+doc = true
+proc-macro = false
+harness = true
+edition = "2021"
+crate-type = ["lib"]
+required-features = []
+
+[dependencies]
+build_script_constant = { path = "./forced_crate/build_script_constant", package = "build_script_constant", version = "0.1.0", default-features = true, features = [], optional = false }
+bytes = { package = "bytes", version = "1.4.0", default-features = true, features = [], optional = false }
+chrono = { package = "chrono", version = "0.4.26", default-features = true, features = [], optional = false }
+clickhouse = { package = "clickhouse", version = "0.11.6", default-features = true, features = ["tls"], optional = false }
+environment_configuration = { path = "./forced_crate/environment_configuration", package = "environment_configuration", version = "0.1.0", default-features = true, features = [], optional = false }
+http = { package = "http", version = "0.2.9", default-features = true, features = [], optional = false }
+hyper = { package = "hyper", version = "0.14.27", default-features = true, features = ["full"], optional = false }
+hyper-tls = { package = "hyper-tls", version = "0.5.0", default-features = true, features = [], optional = false }
+matchit = { package = "matchit", version = "0.7.0", default-features = true, features = [], optional = false }
+rand = { package = "rand", version = "0.8.5", default-features = true, features = [], optional = false }
+regex = { package = "regex", version = "1.10.2", default-features = true, features = [], optional = false }
+reqwest = { package = "reqwest", version = "0.11.23", default-features = true, features = [], optional = false }
+serde = { package = "serde", version = "1.0.183", default-features = true, features = ["derive"], optional = false }
+serde_json = { package = "serde_json", version = "1.0.105", default-features = true, features = [], optional = false }
+tokio = { package = "tokio", version = "1.32.0", default-features = true, features = ["full"], optional = false }
+toml = { package = "toml", version = "0.7.4", default-features = true, features = [], optional = false }
+tracing = { package = "tracing", version = "0.1.40", default-features = true, features = [], optional = false }
+tracing-appender = { package = "tracing-appender", version = "0.2.2", default-features = true, features = [], optional = false }
+tracing-subscriber = { package = "tracing-subscriber", version = "0.3.17", default-features = true, features = [], optional = false }
+uuid = { package = "uuid", version = "1.4.1", default-features = true, features = ["v4"], optional = false }
+
+[build-dependencies]
+build_script_constant = { path = "./forced_crate/build_script_constant", package = "build_script_constant", version = "0.1.0", default-features = true, features = [], optional = false }
+cargo-emit = { package = "cargo-emit", version = "0.2.1", default-features = true, features = [], optional = false }
+environment_configuration = { path = "./forced_crate/environment_configuration", package = "environment_configuration", version = "0.1.0", default-features = true, features = [], optional = false }
+uuid = { package = "uuid", version = "1.4.1", default-features = true, features = ["v4"], optional = false }
+
+[features]
+default = []
+logger_level_trace = []
+file_log  = []
+not_authorized_user = []
+manual_testing = [
+    "logger_level_trace",
+    "file_log",
+    "not_authorized_user",
+]

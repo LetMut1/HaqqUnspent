@@ -1,0 +1,21 @@
+[package]
+name = "core"
+version = "0.1.0"
+authors.workspace = true
+edition = "2021"
+
+[[bin]]
+name = "core"
+path = "./mod.rs"
+test = true
+doctest = true
+bench = true
+doc = true
+proc-macro = false
+harness = true
+edition = "2021"
+required-features = []
+
+[dependencies]
+application = { path = "./../../../../..", package = "application", version = "0.1.0", default-features = true, features = [], optional = false }
+clap = { package = "clap", version = "4.4.1", default-features = true, features = ["cargo"], optional = false }

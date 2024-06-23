@@ -1,0 +1,10 @@
+array_width = 0
+attr_fn_like_width = 0
+chain_width = 120
+fn_params_layout = "Vertical"
+fn_call_width = 0
+max_width = 180
+merge_derives = true
+single_line_if_else_max_width = 0
+struct_lit_width = 0
+struct_variant_width = 0

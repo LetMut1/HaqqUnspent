@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+    postgresql:
+        container_name: haqq_discord_bot_postgresql
+        build:
+            context: ./service/postgresql
+            dockerfile: dockerfile
+        environment:
+            PGDATA: '/var/lib/postgresql/data'
+            POSTGRES_HOST_AUTH_METHOD: 'md5'
+            POSTGRES_USER: 'root'
+            POSTGRES_PASSWORD: 'password'
+            POSTGRES_DB: 'haqq'
+        volumes:
+            - postgresql_data:/var/lib/postgresql/data
+        restart: always
+    dbmate:
+        container_name: haqq_discord_bot_dbmate
+        build:
+            context: ./service/dbmate
+            dockerfile: dockerfile
+        volumes:
+            - ./../../../:/haqq_discord_bot
+        restart: always
+        tty: true
+        init: true
+
+volumes:
+    postgresql_data:
+        driver: local
+
+networks:
+    default:
+        external: true
+        name: resource

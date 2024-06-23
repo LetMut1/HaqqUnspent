@@ -1,0 +1,53 @@
+[package]
+name = "application"
+version = "0.1.0"
+authors.workspace = true
+edition = "2021"
+
+[lib]
+name = "application"
+path = "./source/mod.rs"
+test = true
+doctest = true
+bench = true
+doc = true
+proc-macro = false
+harness = true
+edition = "2021"
+crate-type = ["lib"]
+required-features = []
+
+[dependencies]
+bb8 = { package = "bb8", version = "0.7.1", default-features = true, features = [], optional = false }
+bb8_postgres = { package = "bb8-postgres", version = "0.7.0", default-features = true, features = [], optional = false }
+bech32 = { package = "bech32", version = "0.11.0", default-features = true, features = [], optional = false }
+bytes = { package = "bytes", version = "1.4.0", default-features = true, features = [], optional = false }
+chrono = { package = "chrono", version = "0.4.26", default-features = true, features = [], optional = false }
+cron = { package = "cron", version = "0.12.0", default-features = true, features = [], optional = false }
+csv = { package = "csv", version = "1.3.0", default-features = true, features = [], optional = false }
+ethers = { package = "ethers", version = "2.0.14", default-features = true, features = ["rustls"], optional = false }
+hex = { package = "hex", version = "0.4.3", default-features = true, features = [], optional = false }
+http = { package = "http", version = "0.2.9", default-features = true, features = [], optional = false }
+hyper = { package = "hyper", version = "0.14.27", default-features = true, features = ["full"], optional = false }
+image = { package = "image", version = "0.25.0", default-features = true, features = [], optional = false }
+matchit = { package = "matchit", version = "0.7.0", default-features = true, features = [], optional = false }
+qrcode = { package = "qrcode", version = "0.14.0", default-features = true, features = [], optional = false }
+rand = { package = "rand", version = "0.8.5", default-features = true, features = [], optional = false }
+reqwest = { package = "reqwest", version = "0.12.1", default-features = true, features = [], optional = false }
+serde = { package = "serde", version = "1.0.183", default-features = true, features = ["derive"], optional = false }
+serde_json = { package = "serde_json", version = "1.0.105", default-features = true, features = [], optional = false }
+serenity = { package = "serenity", version = "0.12.1", default-features = true, features = [], optional = false }
+tokio = { package = "tokio", version = "1.32.0", default-features = true, features = ["full"], optional = false }
+tokio_postgres = { package = "tokio-postgres", version = "0.7.10", default-features = true, features = [], optional = false }
+toml = { package = "toml", version = "0.7.4", default-features = true, features = [], optional = false }
+tracing = { package = "tracing", version = "0.1.40", default-features = true, features = [], optional = false }
+tracing-appender = { package = "tracing-appender", version = "0.2.2", default-features = true, features = [], optional = false }
+tracing-subscriber = { package = "tracing-subscriber", version = "0.3.17", default-features = true, features = [], optional = false }
+
+[features]
+default = []
+logger_level_trace = []
+file_log  = []
+manual_testing = [
+    "file_log",
+]
